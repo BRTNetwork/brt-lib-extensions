@@ -6,12 +6,12 @@ var async = require('async');
 /*
 Factory function
 */
-module.exports = function (ripplelib, sjcl) {
+module.exports = function (brtlib, sjcl) {
 
-var Remote = ripplelib.Remote;
-var Seed = ripplelib.Seed;
-var Account = ripplelib.Account;
-var UInt160 = ripplelib.UInt160;
+var Remote = brtlib.Remote;
+var Seed = brtlib.Seed;
+var Account = brtlib.Account;
+var UInt160 = brtlib.UInt160;
 
 // Message class (static)
 var Message = {};

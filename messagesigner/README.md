@@ -7,12 +7,12 @@ sjcl-extended dependencies.
 
 ```javascript
 // import dependencies
-var ripplelib = require('brt-lib');
+var brtlib = require('brt-lib');
 var sjcl = require('sjcl-extended');
 
 // wire it all together
 var messageFactory = require('brt-lib-messagesigner');
-var Message = messageFactory(ripplelib, sjcl);
+var Message = messageFactory(brtlib, sjcl);
 
 // sign a message
 var secret = 'safRpB5euNL52PZPTSqrE9gvuFwTC';
