@@ -5,7 +5,7 @@ A collection of packages that extend the functionality of brt-lib.
 
 ## Not maintained
 
-Warning: These packages are not actively maintained. We recommend using [brt-lib](https://github.com/ripple/brt-lib) instead.
+Warning: These packages are not actively maintained. We recommend using [brt-lib](https://github.com/BRTNetwork/js-brt-lib) instead.
 
 #### Use in the Browser
 
