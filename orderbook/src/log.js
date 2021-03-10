@@ -4,7 +4,7 @@
 const assert = require('assert')
 
 /**
- * Logging functionality for ripple-lib and any applications built on it.
+ * Logging functionality for brt-lib and any applications built on it.
  *
  * @param {String} namespace logging prefix
  * @return {Void} this function does not return...
@@ -184,7 +184,7 @@ if (typeof window !== 'undefined' && typeof console !== 'undefined') {
 module.exports = new Log()
 
 /**
- * This is the logger for ripple-lib internally.
+ * This is the logger for brt-lib internally.
  */
 module.exports.internal = module.exports.sub()
 

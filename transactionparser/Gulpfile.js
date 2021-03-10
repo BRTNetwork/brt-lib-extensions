@@ -7,7 +7,7 @@ var webpack = require('webpack-stream')
 var uglify = require('gulp-uglify')
 var rename = require('gulp-rename')
 var pkg = require('./package.json')
-var name = 'ripple-transaction-parser-' + pkg.version
+var name = 'brt-transaction-parser-' + pkg.version
 
 gulp.task('build', function() {
   return gulp.src('./src/index.js')

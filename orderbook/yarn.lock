@@ -3866,34 +3866,34 @@ ripemd160@^2.0.0, ripemd160@^2.0.1:
     hash-base "^3.0.0"
     inherits "^2.0.1"
 
-ripple-address-codec@^2.0.1:
+brt-address-codec@^2.0.1:
   version "2.0.1"
-  resolved "https://registry.yarnpkg.com/ripple-address-codec/-/ripple-address-codec-2.0.1.tgz#eddbe3a7960d2e02c5c1c74fb9a9fa0d2dfb6571"
+  resolved "https://registry.yarnpkg.com/brt-address-codec/-/brt-address-codec-2.0.1.tgz#eddbe3a7960d2e02c5c1c74fb9a9fa0d2dfb6571"
   integrity sha1-7dvjp5YNLgLFwcdPuan6DS37ZXE=
   dependencies:
     hash.js "^1.0.3"
     x-address-codec "^0.7.0"
 
-ripple-address-codec@^3.0.4:
+brt-address-codec@^3.0.4:
   version "3.0.4"
-  resolved "https://registry.yarnpkg.com/ripple-address-codec/-/ripple-address-codec-3.0.4.tgz#a7a8bb040df41cb082330fd828f09b9e6478c7fd"
+  resolved "https://registry.yarnpkg.com/brt-address-codec/-/brt-address-codec-3.0.4.tgz#a7a8bb040df41cb082330fd828f09b9e6478c7fd"
   integrity sha512-GFk1BgavW+9oy5Z1Cp6YAGMfB51QdbeuhOo0Zir+s+S40F5vHtVZYu6zZE1eOAX92A5kygPuBRX4APH2v8Yhmg==
   dependencies:
     base-x "3.0.4"
     create-hash "^1.1.2"
 
-ripple-address-codec@^4.0.0:
+brt-address-codec@^4.0.0:
   version "4.0.0"
-  resolved "https://registry.yarnpkg.com/ripple-address-codec/-/ripple-address-codec-4.0.0.tgz#c20f39eea38def43d2379462e47bff4adabece30"
+  resolved "https://registry.yarnpkg.com/brt-address-codec/-/brt-address-codec-4.0.0.tgz#c20f39eea38def43d2379462e47bff4adabece30"
   integrity sha512-PsKl9aytg6fZG2F4RtfPT0c1gj42suAQY9VvJVGz+DfQTdXQaTT9V/StVhaJ6jhVpl7oCd981BB9p2Kq+Kyrng==
   dependencies:
     "@types/base-x" "^3.0.0"
     base-x "3.0.4"
     create-hash "^1.1.2"
 
-ripple-binary-codec@^0.1.13:
+brt-binary-codec@^0.1.13:
   version "0.1.15"
-  resolved "https://registry.yarnpkg.com/ripple-binary-codec/-/ripple-binary-codec-0.1.15.tgz#bf69aa4aef097237f682ff517be29959102cd816"
+  resolved "https://registry.yarnpkg.com/brt-binary-codec/-/brt-binary-codec-0.1.15.tgz#bf69aa4aef097237f682ff517be29959102cd816"
   integrity sha512-7b8JO8XmwzcNpBO3bBjNeATiW+NO3qPm56rZBaPn2HJ8Ig0bLJ/ZuA/Vg3SKJQSGOwtx2UD9Cm7PHSpbp+qmIg==
   dependencies:
     babel-runtime "^6.6.1"
@@ -3902,11 +3902,11 @@ ripple-binary-codec@^0.1.13:
     decimal.js "^5.0.8"
     inherits "^2.0.1"
     lodash "^4.12.0"
-    ripple-address-codec "^2.0.1"
+    brt-address-codec "^2.0.1"
 
-ripple-binary-codec@^0.2.4:
+brt-binary-codec@^0.2.4:
   version "0.2.6"
-  resolved "https://registry.yarnpkg.com/ripple-binary-codec/-/ripple-binary-codec-0.2.6.tgz#a8c45c905c12d5dc6fa7e179c3584d56fb8bdb07"
+  resolved "https://registry.yarnpkg.com/brt-binary-codec/-/brt-binary-codec-0.2.6.tgz#a8c45c905c12d5dc6fa7e179c3584d56fb8bdb07"
   integrity sha512-k0efyjpcde7p+rJ9PXW9tJSYsUDdlC9Z9xU7OPM7fJiHVKlR1E7nfu0jqw9vVXtTG3tujqKeEgtcb8yaa7rMXA==
   dependencies:
     babel-runtime "^6.6.1"
@@ -3915,21 +3915,21 @@ ripple-binary-codec@^0.2.4:
     decimal.js "^10.2.0"
     inherits "^2.0.1"
     lodash "^4.17.15"
-    ripple-address-codec "^4.0.0"
+    brt-address-codec "^4.0.0"
 
-ripple-hashes@^0.3.1:
+brt-hashes@^0.3.1:
   version "0.3.4"
-  resolved "https://registry.yarnpkg.com/ripple-hashes/-/ripple-hashes-0.3.4.tgz#d06f78fc39dde27749b33ad2461b39ba873c94ec"
+  resolved "https://registry.yarnpkg.com/brt-hashes/-/brt-hashes-0.3.4.tgz#d06f78fc39dde27749b33ad2461b39ba873c94ec"
   integrity sha512-u2kgg9Yu9D44HWnC9R2lNg+amVLllJkMQmXZEEM2DAMFXigr4+ph1O8LLxLv+k0fbdjAjos4aUyWwcw6cxzYMw==
   dependencies:
     bignumber.js "^4.1.0"
     create-hash "^1.1.2"
-    ripple-address-codec "^3.0.4"
-    ripple-binary-codec "^0.2.4"
+    brt-address-codec "^3.0.4"
+    brt-binary-codec "^0.2.4"
 
-ripple-keypairs@^0.10.1:
+brt-keypairs@^0.10.1:
   version "0.10.2"
-  resolved "https://registry.yarnpkg.com/ripple-keypairs/-/ripple-keypairs-0.10.2.tgz#b3a1d1e2fca85a11c5224b2a7e6da506c19720d0"
+  resolved "https://registry.yarnpkg.com/brt-keypairs/-/brt-keypairs-0.10.2.tgz#b3a1d1e2fca85a11c5224b2a7e6da506c19720d0"
   integrity sha512-NvY+jCrhtpy7ox2unZTIfOfSrUWqVTq+tfCTqgDD8XZ957JGwHBlL5osYAypkTWed/JglH5hggxw14NTKEZzGA==
   dependencies:
     babel-runtime "^5.8.20"
@@ -3937,27 +3937,27 @@ ripple-keypairs@^0.10.1:
     brorand "^1.0.5"
     elliptic "^5.1.0"
     hash.js "^1.0.3"
-    ripple-address-codec "^2.0.1"
+    brt-address-codec "^2.0.1"
 
-ripple-lib-transactionparser@^0.6.2:
+brt-lib-transactionparser@^0.6.2:
   version "0.6.2"
-  resolved "https://registry.yarnpkg.com/ripple-lib-transactionparser/-/ripple-lib-transactionparser-0.6.2.tgz#eb117834816cab3398445a74ec3cacec95b6b5fa"
+  resolved "https://registry.yarnpkg.com/brt-lib-transactionparser/-/brt-lib-transactionparser-0.6.2.tgz#eb117834816cab3398445a74ec3cacec95b6b5fa"
   integrity sha1-6xF4NIFsqzOYRFp07Dys7JW2tfo=
   dependencies:
     bignumber.js "^4.1.0"
     lodash "^4.17.4"
 
-ripple-lib-value@^0.3.1:
+brt-lib-value@^0.3.1:
   version "0.3.1"
-  resolved "https://registry.yarnpkg.com/ripple-lib-value/-/ripple-lib-value-0.3.1.tgz#45510c84bd4231418273c2dc71334abfa3bca951"
+  resolved "https://registry.yarnpkg.com/brt-lib-value/-/brt-lib-value-0.3.1.tgz#45510c84bd4231418273c2dc71334abfa3bca951"
   integrity sha512-NlHgeO4jqoR0d8FMruKdv8uS/2TyG+3ENpI/TAYRTHJiNyxRNnVdy3urckjMdKWNsbyxdBQkYf+sqHxB3EuWeg==
   dependencies:
     bignumber.js "^9.0.0"
     lodash "^4.17.15"
 
-ripple-lib@0.22.0:
+brt-lib@0.22.0:
   version "0.22.0"
-  resolved "https://registry.yarnpkg.com/ripple-lib/-/ripple-lib-0.22.0.tgz#09c230eaa036dc544c7fb60536c25c527a2c45f7"
+  resolved "https://registry.yarnpkg.com/brt-lib/-/brt-lib-0.22.0.tgz#09c230eaa036dc544c7fb60536c25c527a2c45f7"
   integrity sha1-CcIw6qA23FRMf7YFNsJcUnosRfc=
   dependencies:
     "@types/lodash" "^4.14.85"
@@ -3966,11 +3966,11 @@ ripple-lib@0.22.0:
     https-proxy-agent "2.2.1"
     jsonschema "1.2.2"
     lodash "^4.17.4"
-    ripple-address-codec "^2.0.1"
-    ripple-binary-codec "^0.1.13"
-    ripple-hashes "^0.3.1"
-    ripple-keypairs "^0.10.1"
-    ripple-lib-transactionparser "^0.6.2"
+    brt-address-codec "^2.0.1"
+    brt-binary-codec "^0.1.13"
+    brt-hashes "^0.3.1"
+    brt-keypairs "^0.10.1"
+    brt-lib-transactionparser "^0.6.2"
     ws "^3.3.1"
 
 run-queue@^1.0.0, run-queue@^1.0.3:

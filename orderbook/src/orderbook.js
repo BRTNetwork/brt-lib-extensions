@@ -19,8 +19,8 @@ const {EventEmitter} = require('events')
 const {normalizeCurrency, isValidCurrency} = require('./currencyutils')
 const {AutobridgeCalculator} = require('./autobridgecalculator')
 const OrderBookUtils = require('./orderbookutils')
-const {isValidClassicAddress} = require('ripple-address-codec')
-const {XRPValue, IOUValue} = require('ripple-lib-value')
+const {isValidClassicAddress} = require('brt-address-codec')
+const {XRPValue, IOUValue} = require('brt-lib-value')
 const log = require('./log').internal.sub('orderbook')
 
 import type {RippledAmount} from './orderbookutils'

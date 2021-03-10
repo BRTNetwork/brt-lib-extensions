@@ -6,7 +6,7 @@
 
 const assert = require('assert-diff')
 
-const RippleAPI = require('ripple-lib').RippleAPI
+const RippleAPI = require('brt-lib').RippleAPI
 const OrderBook = require('../src/orderbook').OrderBook
 
 const {normalizeCurrency} = require('../src/currencyutils')

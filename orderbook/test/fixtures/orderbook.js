@@ -4,8 +4,8 @@
 
 const _ = require('lodash')
 const addresses = require('./addresses')
-const {XRPValue, IOUValue} = require('ripple-lib-value')
-const binary = require('ripple-binary-codec')
+const {XRPValue, IOUValue} = require('brt-lib-value')
+const binary = require('brt-binary-codec')
 
 module.exports.FIAT_BALANCE = '10'
 module.exports.NATIVE_BALANCE = '55'

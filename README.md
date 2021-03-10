@@ -1,11 +1,11 @@
-ripple-lib-extensions
+brt-lib-extensions
 =====================
 
-A collection of packages that extend the functionality of ripple-lib.
+A collection of packages that extend the functionality of brt-lib.
 
 ## Not maintained
 
-Warning: These packages are not actively maintained. We recommend using [ripple-lib](https://github.com/ripple/ripple-lib) instead.
+Warning: These packages are not actively maintained. We recommend using [brt-lib](https://github.com/ripple/brt-lib) instead.
 
 #### Use in the Browser
 

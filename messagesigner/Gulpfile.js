@@ -7,7 +7,7 @@ var webpack = require('webpack-stream');
 var uglify = require('gulp-uglify');
 var rename = require('gulp-rename');
 var pkg = require('./package.json');
-var name = 'ripple-message-signer-' + pkg.version;
+var name = 'brt-message-signer-' + pkg.version;
 
 gulp.task('build', function() {
   return gulp.src('./src/message.js')

@@ -5,7 +5,7 @@
 const _ = require('lodash')
 const assert = require('assert')
 const Utils = require('./orderbookutils')
-const {IOUValue} = require('ripple-lib-value')
+const {IOUValue} = require('brt-lib-value')
 
 function assertValidNumber(number, message) {
   assert(!_.isNull(number) && !isNaN(number), message)

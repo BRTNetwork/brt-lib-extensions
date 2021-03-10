@@ -130,7 +130,7 @@ function groupByAddress(orderChanges) {
  * as a result of the given transaction.
  * Returns changes grouped by Ripple account.
  *
- *  @param {Object} metadata - Transaction metadata as return by ripple-lib
+ *  @param {Object} metadata - Transaction metadata as return by brt-lib
  *  @returns {Object} - Orderbook changes grouped by Ripple account
  *
  */

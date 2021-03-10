@@ -1,5 +1,5 @@
 {
-  "name": "ripple-lib-transactionparser",
+  "name": "brt-lib-transactionparser",
   "version": "0.8.2",
   "description": "Parses transaction objects to a higher-level view",
   "license": "ISC",
@@ -10,13 +10,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ripple/ripple-lib-extensions.git"
+    "url": "https://github.com/ripple/brt-lib-extensions.git"
   },
   "main": "src/index.js",
   "keywords": [
     "ripple",
-    "ripple-lib",
-    "ripple-lib-transactionparser"
+    "brt-lib",
+    "brt-lib-transactionparser"
   ],
   "dependencies": {
     "bignumber.js": "^9.0.0",

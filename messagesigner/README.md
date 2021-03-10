@@ -1,17 +1,17 @@
-ripple-lib-messagesigner
+brt-lib-messagesigner
 ------------------------
 
 This module exports a Message class which can sign arbitrary data. To use it you
-must use the exported class factory, which injects the required ripple-lib and
+must use the exported class factory, which injects the required brt-lib and
 sjcl-extended dependencies.
 
 ```javascript
 // import dependencies
-var ripplelib = require('ripple-lib');
+var ripplelib = require('brt-lib');
 var sjcl = require('sjcl-extended');
 
 // wire it all together
-var messageFactory = require('ripple-lib-messagesigner');
+var messageFactory = require('brt-lib-messagesigner');
 var Message = messageFactory(ripplelib, sjcl);
 
 // sign a message

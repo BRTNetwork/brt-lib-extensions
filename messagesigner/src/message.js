@@ -91,7 +91,7 @@ Message.signHash = function(_hash, secret_key_, account) {
  *  Verify the signature on a given message.
  *
  *  Note that this function is asynchronous.
- *  The ripple-lib remote is used to check that the public
+ *  The brt-lib remote is used to check that the public
  *  key extracted from the signature corresponds to one that is currently
  *  active for the given account.
  *
@@ -100,7 +100,7 @@ Message.signHash = function(_hash, secret_key_, account) {
  *  @param {String} data.message
  *  @param {RippleAddress} data.account
  *  @param {Base64-encoded String} data.signature
- *  @param {ripple-lib Remote} remote
+ *  @param {brt-lib Remote} remote
  *  @param {Function} callback
  *
  *  @callback callback
@@ -125,7 +125,7 @@ Message.verifyMessageSignature = function(data, remote, callback) {
  *  Verify the signature on a given hash.
  *
  *  Note that this function is asynchronous.
- *  The ripple-lib remote is used to check that the public
+ *  The brt-lib remote is used to check that the public
  *  key extracted from the signature corresponds to one that is currently
  *  active for the given account.
  *
@@ -134,7 +134,7 @@ Message.verifyMessageSignature = function(data, remote, callback) {
  *  @param {bitArray|Hex-encoded String} data.hash
  *  @param {RippleAddress} data.account
  *  @param {Base64-encoded String} data.signature
- *  @param {ripple-lib Remote} remote
+ *  @param {brt-lib Remote} remote
  *  @param {Function} callback
  *
  *  @callback callback

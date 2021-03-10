@@ -1,6 +1,6 @@
-# ripple-lib-value
+# brt-lib-value
 
 Classes for dealing with XRP Ledger amount values
 
-[![NPM](https://nodei.co/npm/ripple-lib-value.png)](https://www.npmjs.org/package/ripple-lib-value)
+[![NPM](https://nodei.co/npm/brt-lib-value.png)](https://www.npmjs.org/package/brt-lib-value)
 

@@ -1,13 +1,13 @@
-ripple-lib-transactionparser
+brt-lib-transactionparser
 ----------------------------
 
-[![NPM](https://nodei.co/npm/ripple-lib-transactionparser.png)](https://www.npmjs.org/package/ripple-lib-transactionparser)
+[![NPM](https://nodei.co/npm/brt-lib-transactionparser.png)](https://www.npmjs.org/package/brt-lib-transactionparser)
 
 Parses transaction objects to a higher-level view.
 
 ### parseBalanceChanges(metadata)
 
-Takes a transaction metadata object (as returned by a ripple-lib response) and computes the balance changes that were caused by that transaction.
+Takes a transaction metadata object (as returned by a brt-lib response) and computes the balance changes that were caused by that transaction.
 
 The return value is a javascript object in the following format:
 

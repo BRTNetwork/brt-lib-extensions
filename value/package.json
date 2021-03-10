@@ -1,5 +1,5 @@
 {
-  "name": "ripple-lib-value",
+  "name": "brt-lib-value",
   "version": "0.3.1",
   "license": "ISC",
   "description": "Classes for dealing with XRP Ledger amount values",
@@ -17,13 +17,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ripple/ripple-lib-extensions.git"
+    "url": "https://github.com/ripple/brt-lib-extensions.git"
   },
   "main": "dist/npm/",
   "keywords": [
     "ripple",
-    "ripple-lib",
-    "ripple-lib-value"
+    "brt-lib",
+    "brt-lib-value"
   ],
   "engines": {
     "node": ">=8",

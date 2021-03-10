@@ -5,8 +5,8 @@
 const assert = require('assert-diff')
 const addresses = require('./fixtures/addresses')
 const fixtures = require('./fixtures/orderbook')
-const {XRPValue, IOUValue} = require('ripple-lib-value')
-const RippleAPI = require('ripple-lib').RippleAPI
+const {XRPValue, IOUValue} = require('brt-lib-value')
+const RippleAPI = require('brt-lib').RippleAPI
 const OrderBook = require('../src/orderbook').OrderBook
 const OrderBookUtils = require('../src/orderbookutils')
 const EventEmitter = require('events').EventEmitter

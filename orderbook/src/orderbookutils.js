@@ -3,7 +3,7 @@
 'use strict' // eslint-disable-line strict
 
 const _ = require('lodash')
-const binary = require('ripple-binary-codec')
+const binary = require('brt-binary-codec')
 const OrderBookUtils = {}
 
 
