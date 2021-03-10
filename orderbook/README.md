@@ -2,7 +2,7 @@
 
 # brt-lib-orderbook
 
-Live updating orderbook data from the XRP Ledger.
+Live updating orderbook data from the BRT Ledger.
 
 ```javascript
   var api = new ripple.RippleAPI({server: 'wss://s1.ripple.com'});
@@ -10,7 +10,7 @@ Live updating orderbook data from the XRP Ledger.
   api.connect().then(function() {
 
     var book = rippleOrderbook.OrderBook.createOrderBook(api, {
-      currency_gets: 'XRP',
+      currency_gets: 'BRT',
       issuer_pays: 'rvYAfWj5gh67oV6fW32ZzP3Aw4Eubs59B',
       currency_pays: 'USD'
     });

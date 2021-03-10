@@ -939,7 +939,7 @@ exports.parsedOfferCreateNoChangeTakerGets = function() {
           value: '2.841e-12'
         },
         quantity: {
-          currency: 'XRP',
+          currency: 'BRT',
           value: '0'
         },
         makerExchangeRate: '0.00002901',
@@ -1015,7 +1015,7 @@ exports.parsedOfferCreateCreated = function() {
       {
         'direction': 'buy',
         'quantity': {
-          'currency': 'XRP',
+          'currency': 'BRT',
           'value': '10000000'
         },
         'totalPrice': {
@@ -1037,7 +1037,7 @@ exports.parsedOfferCancel = function() {
       {
         'direction': 'buy',
         'quantity': {
-          'currency': 'XRP',
+          'currency': 'BRT',
           'value': '1000'
         },
         'totalPrice': {

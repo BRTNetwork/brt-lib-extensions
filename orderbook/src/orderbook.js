@@ -20,12 +20,12 @@ const {normalizeCurrency, isValidCurrency} = require('./currencyutils')
 const {AutobridgeCalculator} = require('./autobridgecalculator')
 const OrderBookUtils = require('./orderbookutils')
 const {isValidClassicAddress} = require('brt-address-codec')
-const {XRPValue, IOUValue} = require('brt-lib-value')
+const {BRTValue, IOUValue} = require('brt-lib-value')
 const log = require('./log').internal.sub('orderbook')
 
 import type {RippledAmount} from './orderbookutils'
 
-type Value = XRPValue | IOUValue;
+type Value = BRTValue | IOUValue;
 
 type CurrencySpec = {
   currency: string,
@@ -44,7 +44,7 @@ type CreateOrderbookOptions = {
 
 const DEFAULT_TRANSFER_RATE = new IOUValue('1.000000000')
 
-const ZERO_NATIVE_AMOUNT = new XRPValue('0')
+const ZERO_NATIVE_AMOUNT = new BRTValue('0')
 
 const ZERO_NORMALIZED_AMOUNT = new IOUValue('0')
 
@@ -60,13 +60,13 @@ const EVENTS = [
 
 function prepareTrade(currency: string, issuer_?: string): string {
   const issuer = issuer_ === undefined ? '' : issuer_
-  const suffix = normalizeCurrency(currency) === 'XRP' ? '' : ('/' + issuer)
+  const suffix = normalizeCurrency(currency) === 'BRT' ? '' : ('/' + issuer)
   return currency + suffix
 }
 
 function parseRippledAmount(amount: RippledAmount): Value {
   return typeof amount === 'string' ?
-    new XRPValue(amount) :
+    new BRTValue(amount) :
     new IOUValue(amount.value)
 }
 
@@ -153,7 +153,7 @@ class OrderBook extends EventEmitter {
                 prepareTrade(currencyPays, issuerPays)
     this._ledgerIndex = ledgerIndex
 
-    // When orderbook is IOU/IOU, there will be IOU/XRP and XRP/IOU
+    // When orderbook is IOU/IOU, there will be IOU/BRT and BRT/IOU
     // books that we must keep track of to compute autobridged offers
     this._legOneBook = null
     this._legTwoBook = null
@@ -164,8 +164,8 @@ class OrderBook extends EventEmitter {
     this._subscribed = false
     this._synced = false
 
-    this._isAutobridgeable = this._currencyGets !== 'XRP'
-      && this._currencyPays !== 'XRP'
+    this._isAutobridgeable = this._currencyGets !== 'BRT'
+      && this._currencyPays !== 'BRT'
 
     this._issuerTransferRate = null
     this._transferRateIsDefault = false
@@ -188,11 +188,11 @@ class OrderBook extends EventEmitter {
     this._onTransactionBound = this._onTransaction.bind(this)
 
     if (this._isAutobridgeable) {
-      this._legOneBook = new OrderBook(api, 'XRP', undefined,
+      this._legOneBook = new OrderBook(api, 'BRT', undefined,
         currencyPays, issuerPays, account, this._ledgerIndex, this._trace)
 
       this._legTwoBook = new OrderBook(api, currencyGets, issuerGets,
-        'XRP', undefined, account, this._ledgerIndex, this._trace)
+        'BRT', undefined, account, this._ledgerIndex, this._trace)
     }
 
     this._initializeSubscriptionMonitoring()
@@ -229,10 +229,10 @@ class OrderBook extends EventEmitter {
     // XXX Should check for same currency (non-native) && same issuer
     return (
       Boolean(this._currencyPays) && isValidCurrency(this._currencyPays) &&
-      (this._currencyPays === 'XRP' || isValidClassicAddress(this._issuerPays)) &&
+      (this._currencyPays === 'BRT' || isValidClassicAddress(this._issuerPays)) &&
       Boolean(this._currencyGets) && isValidCurrency(this._currencyGets) &&
-      (this._currencyGets === 'XRP' || isValidClassicAddress(this._issuerGets)) &&
-      !(this._currencyPays === 'XRP' && this._currencyGets === 'XRP')
+      (this._currencyGets === 'BRT' || isValidClassicAddress(this._issuerGets)) &&
+      !(this._currencyPays === 'BRT' && this._currencyGets === 'BRT')
     )
   }
 
@@ -293,11 +293,11 @@ class OrderBook extends EventEmitter {
       }
     }
 
-    if (this._currencyGets !== 'XRP') {
+    if (this._currencyGets !== 'BRT') {
       json.taker_gets.issuer = this._issuerGets
     }
 
-    if (this._currencyPays !== 'XRP') {
+    if (this._currencyPays !== 'BRT') {
       json.taker_pays.issuer = this._issuerPays
     }
 
@@ -523,10 +523,10 @@ class OrderBook extends EventEmitter {
     if (affectedNodes.length > 0) {
 
       const state = {
-        takerGetsTotal: this._currencyGets === 'XRP' ?
-          new XRPValue('0') : new IOUValue('0'),
-        takerPaysTotal: this._currencyPays === 'XRP' ?
-          new XRPValue('0') : new IOUValue('0'),
+        takerGetsTotal: this._currencyGets === 'BRT' ?
+          new BRTValue('0') : new IOUValue('0'),
+        takerPaysTotal: this._currencyPays === 'BRT' ?
+          new BRTValue('0') : new IOUValue('0'),
         transactionOwnerFunds: transaction.transaction.owner_funds
       }
 
@@ -607,7 +607,7 @@ class OrderBook extends EventEmitter {
       return
     }
 
-    if (this._currencyGets !== 'XRP' && !this._issuerTransferRate) {
+    if (this._currencyGets !== 'BRT' && !this._issuerTransferRate) {
       if (this._trace) {
         log.info('waiting for transfer rate')
       }
@@ -625,7 +625,7 @@ class OrderBook extends EventEmitter {
 
     const affectedNodes = OrderBookUtils.getAffectedNodes(metadata, {
       nodeType: 'ModifiedNode',
-      entryType: this._currencyGets === 'XRP' ? 'AccountRoot' : 'RippleState'
+      entryType: this._currencyGets === 'BRT' ? 'AccountRoot' : 'RippleState'
     })
 
     if (this._trace) {
@@ -706,7 +706,7 @@ class OrderBook extends EventEmitter {
     }
 
     // Check if taker gets currency is native and balance is not a number
-    if (this._currencyGets === 'XRP') {
+    if (this._currencyGets === 'BRT') {
       return !isNaN(node.fields.Balance)
     }
 
@@ -958,8 +958,8 @@ class OrderBook extends EventEmitter {
   }
 
   _getOfferTakerGetsFunded(offer: Object): Value {
-    return this._currencyGets === 'XRP' ?
-      new XRPValue(offer.taker_gets_funded) :
+    return this._currencyGets === 'BRT' ?
+      new BRTValue(offer.taker_gets_funded) :
       new IOUValue(offer.taker_gets_funded)
   }
 
@@ -972,7 +972,7 @@ class OrderBook extends EventEmitter {
    */
 
   _resetOwnerOfferTotal(account: string): void {
-    if (this._currencyGets === 'XRP') {
+    if (this._currencyGets === 'BRT') {
       this._ownerOffersTotal[account] = ZERO_NATIVE_AMOUNT
     } else {
       this._ownerOffersTotal[account] = ZERO_NORMALIZED_AMOUNT
@@ -995,7 +995,7 @@ class OrderBook extends EventEmitter {
 
   _requestTransferRate(): Promise<Value> {
 
-    if (this._currencyGets === 'XRP') {
+    if (this._currencyGets === 'BRT') {
       // Transfer rate is default for the native currency
       this._issuerTransferRate = DEFAULT_TRANSFER_RATE
       this._transferRateIsDefault = true
@@ -1220,7 +1220,7 @@ class OrderBook extends EventEmitter {
       const takerPaysFunded = quality.multiply(
         new IOUValue(offer.taker_gets_funded))
 
-      offer.taker_pays_funded = (this._currencyPays === 'XRP')
+      offer.taker_pays_funded = (this._currencyPays === 'BRT')
         ? String(Math.floor(Number(takerPaysFunded.toString())))
         : takerPaysFunded.toString()
     } else {
@@ -1261,7 +1261,7 @@ class OrderBook extends EventEmitter {
     if (amount) {
       return amount
     }
-    return this._currencyGets === 'XRP' ?
+    return this._currencyGets === 'BRT' ?
       ZERO_NATIVE_AMOUNT :
       ZERO_NORMALIZED_AMOUNT
   }
@@ -1269,8 +1269,8 @@ class OrderBook extends EventEmitter {
 
   _makeGetsValue(value_: RippledAmount): Value {
     const value = OrderBook._getValFromRippledAmount(value_)
-    return this._currencyGets === 'XRP' ?
-      new XRPValue(value) :
+    return this._currencyGets === 'BRT' ?
+      new BRTValue(value) :
       new IOUValue(value)
   }
 
@@ -1328,11 +1328,11 @@ class OrderBook extends EventEmitter {
 
   /**
    * Compute autobridged offers for an IOU:IOU orderbook by merging offers from
-   * IOU:XRP and XRP:IOU books
+   * IOU:BRT and BRT:IOU books
    */
 
   _computeAutobridgedOffers(): Promise<void> {
-    assert(this._currencyGets !== 'XRP' && this._currencyPays !== 'XRP',
+    assert(this._currencyGets !== 'BRT' && this._currencyPays !== 'BRT',
       'Autobridging is only for IOU:IOU orderbooks')
 
     if (this._trace) {

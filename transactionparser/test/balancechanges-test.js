@@ -4,19 +4,19 @@ var assert = require('assert-diff')
 var fs = require('fs')
 var parseBalanceChanges = require('../src/index').parseBalanceChanges
 
-// Pay 100 XRP from rKmB to rLDY to create rLDY account
+// Pay 100 BRT from rKmB to rLDY to create rLDY account
 var createAccountBalanceChanges = {
   rLDYrujdKUfVx28T9vRDAbyJ7G2WVXKo4K: [
     {
       value: '100',
-      currency: 'XRP',
+      currency: 'BRT',
       counterparty: ''
     }
   ],
   rKmBGxocj9Abgy25J51Mk1iqFzW9aVF9Tc: [
     {
       value: '-100.012',
-      currency: 'XRP',
+      currency: 'BRT',
       counterparty: ''
     }
   ]
@@ -32,7 +32,7 @@ var usdFirstPaymentBalanceChanges = {
     },
     {
       value: '-0.012',
-      currency: 'XRP',
+      currency: 'BRT',
       counterparty: ''
     }
   ],
@@ -86,7 +86,7 @@ var usdFullPaymentBalanceChanges = {
     },
     {
       value: '-0.012',
-      currency: 'XRP',
+      currency: 'BRT',
       counterparty: ''
     }
   ]
@@ -101,7 +101,7 @@ var setTrustlineBalanceChanges = {
   rLDYrujdKUfVx28T9vRDAbyJ7G2WVXKo4K: [
     {
       value: '-0.012',
-      currency: 'XRP',
+      currency: 'BRT',
       counterparty: ''
     }
   ]
@@ -111,7 +111,7 @@ var setTrustlineBalanceChanges2 = {
   rsApBGKJmMfExxZBrGnzxEXyq7TMhMRg4e: [
     {
       counterparty: '',
-      currency: 'XRP',
+      currency: 'BRT',
       value: '-0.00001'
     }
   ]
@@ -128,7 +128,7 @@ var createTrustlineBalanceChanges = {
     },
     {
       counterparty: '',
-      currency: 'XRP',
+      currency: 'BRT',
       value: '-0.012'
     }
   ],
@@ -172,7 +172,7 @@ var deleteTrustlineBalanceChanges = {
     },
     {
       value: '-0.012',
-      currency: 'XRP',
+      currency: 'BRT',
       counterparty: ''
     }
   ]
@@ -193,7 +193,7 @@ var redeemBalanceChanges = {
       value: '-100'
     },
     {
-      currency: 'XRP',
+      currency: 'BRT',
       counterparty: '',
       value: '-0.00001'
     }
@@ -215,7 +215,7 @@ var redeemThenIssueBalanceChanges = {
       value: '-200'
     },
     {
-      currency: 'XRP',
+      currency: 'BRT',
       counterparty: '',
       value: '-0.00001'
     }
@@ -243,7 +243,7 @@ var multipathBalanceChanges = {
     },
     {
       counterparty: '',
-      currency: 'XRP',
+      currency: 'BRT',
       value: '-0.00001'
     },
     {
@@ -310,7 +310,7 @@ function loadFixture(filename) {
 }
 
 describe('parseBalanceChanges', function() {
-  it('XRP create account', function() {
+  it('BRT create account', function() {
     var paymentResponse = loadFixture('payment-brt-create-account.json')
     var result = parseBalanceChanges(paymentResponse.metadata)
     assert.deepEqual(result, createAccountBalanceChanges)

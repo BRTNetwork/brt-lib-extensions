@@ -20,7 +20,7 @@
     "validated": true
   },
   "book_offers": {
-    "XRPUSD": {
+    "BRTUSD": {
       "ledger_current_index": 16989787,
       "offers": [
         {
@@ -5946,7 +5946,7 @@
       ],
       "validated": true
     },
-    "USDXRP": {
+    "USDBRT": {
       "ledger_current_index": 16989787,
       "offers": [
         {

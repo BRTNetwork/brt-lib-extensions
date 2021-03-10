@@ -2,7 +2,7 @@
   "name": "brt-lib-value",
   "version": "0.3.1",
   "license": "ISC",
-  "description": "Classes for dealing with XRP Ledger amount values",
+  "description": "Classes for dealing with BRT Ledger amount values",
   "files": [
     "dist/npm/*"
   ],

@@ -25,9 +25,9 @@ where `BALANCECHANGE` is a javascript object in the following format:
 }
 ```
 
-The keys in this object are the Ripple [addresses](https://wiki.ripple.com/Accounts) whose balances have changed and the values are arrays of objects that represent the balance changes. Each balance change has a counterparty, which is the opposite party on the trustline, except for XRP, where the counterparty is set to the empty string.
+The keys in this object are the Ripple [addresses](https://wiki.ripple.com/Accounts) whose balances have changed and the values are arrays of objects that represent the balance changes. Each balance change has a counterparty, which is the opposite party on the trustline, except for BRT, where the counterparty is set to the empty string.
 
-The `CURRENCYSTRING` is 'XRP' for XRP, a 3-letter ISO currency code, or a 160-bit hex string in the [Currency format](https://wiki.ripple.com/Currency_format).
+The `CURRENCYSTRING` is 'BRT' for BRT, a 3-letter ISO currency code, or a 160-bit hex string in the [Currency format](https://wiki.ripple.com/Currency_format).
 
 
 ### parseOrderbookChanges(metadata)
@@ -48,12 +48,12 @@ where `ORDERCHANGE` is a javascript object with the following format:
     direction: 'buy' | 'sell',
     quantity: {
         currency: CURRENCYSTRING,
-        counterparty: RIPPLEADDRESS,  (omitted if currency is 'XRP')
+        counterparty: RIPPLEADDRESS,  (omitted if currency is 'BRT')
         value: DECIMALSTRING
     },
     totalPrice: {
         currency: CURRENCYSTRING,
-        counterparty: RIPPLEADDRESS,  (omitted if currency is 'XRP')
+        counterparty: RIPPLEADDRESS,  (omitted if currency is 'BRT')
         value: DECIMALSTRING
     },
     makerExchangeRate: DECIMALSTRING,
@@ -67,7 +67,7 @@ where `ORDERCHANGE` is a javascript object with the following format:
 The keys in this object are the Ripple [addresses](https://wiki.ripple.com/Accounts) whose orders have changed and the values are arrays of objects that represent the order changes.
 
 The `SEQUENCE` is the sequence number of the transaction that created that create the orderbook change. (See: https://wiki.ripple.com/Ledger_Format#Offer)
-The `CURRENCYSTRING` is 'XRP' for XRP, a 3-letter ISO currency code, or a 160-bit hex string in the [Currency format](https://wiki.ripple.com/Currency_format).
+The `CURRENCYSTRING` is 'BRT' for BRT, a 3-letter ISO currency code, or a 160-bit hex string in the [Currency format](https://wiki.ripple.com/Currency_format).
 
 The `makerExchangeRate` field provides the original value of the ratio of what the taker pays over what the taker gets (also known as the "quality").
 
@@ -102,9 +102,9 @@ The return value is a JavaScript object in the following format:
 
 * `channelId` indicates the Channel ID, which is necessary to sign claims.
 * `source` owns this payment channel. This comes from the sending address of the transaction that created the channel.
-* `destination` is the only address that can receive XRP from the channel. This comes from the Destination field of the transaction that created the channel.
-* `channelAmountDrops` is the amount of XRP drops that has been allocated to this channel. This includes XRP that has been paid to the destination address. This is initially set by the transaction that created the channel and can be increased if the source address sends a PaymentChannelFund transaction.
-* `channelBalanceDrops` is the total XRP, in drops, already paid out by the channel. The difference between this value and the Amount is how much XRP can still be paid tot he destination address with PaymentChannelClaim transactions. If the channel closes, the remaining difference is returned to the source address.
-* `channelAmountChangeDrops` is the change in the amount of XRP drops allocated to this channel. This is positive for a PaymentChannelFund transaction. Optional; may be omitted.
-* `channelBalanceChangeDrops` is the change in the amount of XRP drops already paid out by the channel. Optional; may be omitted.
+* `destination` is the only address that can receive BRT from the channel. This comes from the Destination field of the transaction that created the channel.
+* `channelAmountDrops` is the amount of BRT drops that has been allocated to this channel. This includes BRT that has been paid to the destination address. This is initially set by the transaction that created the channel and can be increased if the source address sends a PaymentChannelFund transaction.
+* `channelBalanceDrops` is the total BRT, in drops, already paid out by the channel. The difference between this value and the Amount is how much BRT can still be paid tot he destination address with PaymentChannelClaim transactions. If the channel closes, the remaining difference is returned to the source address.
+* `channelAmountChangeDrops` is the change in the amount of BRT drops allocated to this channel. This is positive for a PaymentChannelFund transaction. Optional; may be omitted.
+* `channelBalanceChangeDrops` is the change in the amount of BRT drops already paid out by the channel. Optional; may be omitted.
 * `previousTxnId` is the previous transaction that affected this payment channel object. Optional; may be omitted.

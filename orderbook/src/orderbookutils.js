@@ -64,7 +64,7 @@ function getNodeType(node) {
 
 function rippledAmountToCurrencyString(amount: RippledAmount): string {
   return typeof amount === 'string' ?
-    'XRP' :
+    'BRT' :
     (amount.currency + '/' +
     (amount.issuer ? amount.issuer : ''))
 }

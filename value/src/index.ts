@@ -1,2 +1,2 @@
-export {XRPValue} from './brtvalue'
+export {BRTValue} from './brtvalue'
 export {IOUValue} from './iouvalue'

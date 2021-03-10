@@ -4,7 +4,7 @@
 
 const _ = require('lodash')
 const addresses = require('./addresses')
-const {XRPValue, IOUValue} = require('brt-lib-value')
+const {BRTValue, IOUValue} = require('brt-lib-value')
 const binary = require('brt-binary-codec')
 
 module.exports.FIAT_BALANCE = '10'
@@ -822,7 +822,7 @@ module.exports.transactionWithCreatedOffer = function(options) {
   })
 
   const takerGets = new IOUValue(options.amount)
-  const takerPays = new XRPValue(module.exports.TAKER_PAYS)
+  const takerPays = new BRTValue(module.exports.TAKER_PAYS)
   const quality = takerPays.divide(takerGets)
 
   const BookDirectory = binary.encodeQuality(quality.toString())
@@ -867,7 +867,7 @@ module.exports.transactionWithCreatedOfferR = function(options) {
   })
 
   const takerGets = new IOUValue(options.amount)
-  const takerPays = new XRPValue(module.exports.TAKER_PAYS)
+  const takerPays = new BRTValue(module.exports.TAKER_PAYS)
   const quality = takerPays.divide(takerGets)
 
   const BookDirectory = binary.encodeQuality(quality.toString())

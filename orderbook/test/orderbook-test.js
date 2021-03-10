@@ -5,7 +5,7 @@
 const assert = require('assert-diff')
 const addresses = require('./fixtures/addresses')
 const fixtures = require('./fixtures/orderbook')
-const {XRPValue, IOUValue} = require('brt-lib-value')
+const {BRTValue, IOUValue} = require('brt-lib-value')
 const RippleAPI = require('brt-lib').RippleAPI
 const OrderBook = require('../src/orderbook').OrderBook
 const OrderBookUtils = require('../src/orderbookutils')
@@ -22,14 +22,14 @@ describe('OrderBook', function() {
 
   it('toJSON', function() {
     let book = createOrderBook({
-      currency_gets: 'XRP',
+      currency_gets: 'BRT',
       issuer_pays: addresses.ISSUER,
       currency_pays: 'BTC'
     })
 
     assert.deepEqual(book.toJSON(), {
       taker_gets: {
-        currency: 'XRP'
+        currency: 'BRT'
       },
       taker_pays: {
         currency: 'BTC',
@@ -40,7 +40,7 @@ describe('OrderBook', function() {
     book = createOrderBook({
       issuer_gets: addresses.ISSUER,
       currency_gets: 'BTC',
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     assert.deepEqual(book.toJSON(), {
@@ -49,14 +49,14 @@ describe('OrderBook', function() {
         issuer: addresses.ISSUER
       },
       taker_pays: {
-        currency: 'XRP'
+        currency: 'BRT'
       }
     })
   })
 
   it('Check orderbook validity', function() {
     const book = createOrderBook({
-      currency_gets: 'XRP',
+      currency_gets: 'BRT',
       issuer_pays: addresses.ISSUER,
       currency_pays: 'BTC'
     })
@@ -69,7 +69,7 @@ describe('OrderBook', function() {
     this.timeout(100)
 
     const book = createOrderBook({
-      currency_gets: 'XRP',
+      currency_gets: 'BRT',
       issuer_pays: addresses.ISSUER,
       currency_pays: 'BTC'
     })
@@ -143,7 +143,7 @@ describe('OrderBook', function() {
 
   it('Automatic unsubscription - remove all listeners', function(done) {
     const book = createOrderBook({
-      currency_gets: 'XRP',
+      currency_gets: 'BRT',
       issuer_pays: addresses.ISSUER,
       currency_pays: 'BTC'
     })
@@ -160,7 +160,7 @@ describe('OrderBook', function() {
 
   it('Automatic unsubscription - once listener', function(done) {
     const book = createOrderBook({
-      currency_gets: 'XRP',
+      currency_gets: 'BRT',
       issuer_pays: addresses.ISSUER,
       currency_pays: 'BTC'
     })
@@ -177,7 +177,7 @@ describe('OrderBook', function() {
 
   it('Automatic unsubscription - check unsubscribed', function(done) {
     const book = createOrderBook({
-      currency_gets: 'XRP',
+      currency_gets: 'BRT',
       issuer_pays: addresses.ISSUER,
       currency_pays: 'BTC'
     })
@@ -213,7 +213,7 @@ describe('OrderBook', function() {
 
   it('Subscribe to transactions on reconnect', function(done) {
     const book = createOrderBook({
-      currency_gets: 'XRP',
+      currency_gets: 'BRT',
       issuer_pays: addresses.ISSUER,
       currency_pays: 'BTC'
     })
@@ -256,7 +256,7 @@ describe('OrderBook', function() {
 
   it('Set owner funds', function() {
     const book = createOrderBook({
-      currency_gets: 'XRP',
+      currency_gets: 'BRT',
       issuer_pays: addresses.ISSUER,
       currency_pays: 'BTC'
     })
@@ -269,7 +269,7 @@ describe('OrderBook', function() {
 
   it('Set owner funds - unadjusted funds', function() {
     const book = createOrderBook({
-      currency_gets: 'XRP',
+      currency_gets: 'BRT',
       issuer_pays: addresses.ISSUER,
       currency_pays: 'BTC'
     })
@@ -282,7 +282,7 @@ describe('OrderBook', function() {
 
   it('Set owner funds - invalid account', function() {
     const book = createOrderBook({
-      currency_gets: 'XRP',
+      currency_gets: 'BRT',
       issuer_pays: addresses.ISSUER,
       currency_pays: 'BTC'
     })
@@ -294,7 +294,7 @@ describe('OrderBook', function() {
 
   it('Set owner funds - invalid amount', function() {
     const book = createOrderBook({
-      currency_gets: 'XRP',
+      currency_gets: 'BRT',
       issuer_pays: addresses.ISSUER,
       currency_pays: 'BTC'
     })
@@ -306,7 +306,7 @@ describe('OrderBook', function() {
 
   it('Has owner funds', function() {
     const book = createOrderBook({
-      currency_gets: 'XRP',
+      currency_gets: 'BRT',
       issuer_pays: addresses.ISSUER,
       currency_pays: 'BTC'
     })
@@ -317,7 +317,7 @@ describe('OrderBook', function() {
 
   it('Delete owner funds', function() {
     const book = createOrderBook({
-      currency_gets: 'XRP',
+      currency_gets: 'BRT',
       issuer_pays: addresses.ISSUER,
       currency_pays: 'BTC'
     })
@@ -333,7 +333,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'BTC',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     assert.strictEqual(book._incrementOwnerOfferCount(addresses.ACCOUNT), 1)
@@ -344,7 +344,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'BTC',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     book._incrementOwnerOfferCount(addresses.ACCOUNT)
@@ -357,7 +357,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'BTC',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     book._incrementOwnerOfferCount(addresses.ACCOUNT)
@@ -373,7 +373,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'BTC',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     book._ownerOffersTotal[addresses.ACCOUNT] = new IOUValue('3')
@@ -393,7 +393,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'BTC',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     assert.throws(function() {
@@ -405,7 +405,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'BTC',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
     book._ownerOffersTotal[addresses.ACCOUNT] = new IOUValue('3')
 
@@ -415,9 +415,9 @@ describe('OrderBook', function() {
 
   it('Get owner offer total - native', function() {
     const book = createOrderBook({
-      currency_gets: 'XRP',
+      currency_gets: 'BRT',
       issuer_pays: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     book._ownerOffersTotal[addresses.ACCOUNT] = new IOUValue('3')
@@ -430,7 +430,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'BTC',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     assert.strictEqual(
@@ -439,7 +439,7 @@ describe('OrderBook', function() {
 
   it('Get owner offer total - native - no total', function() {
     const book = createOrderBook({
-      currency_gets: 'XRP',
+      currency_gets: 'BRT',
       issuer_pays: addresses.ISSUER,
       currency_pays: 'BTC'
     })
@@ -451,7 +451,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'BTC',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     book._issuerTransferRate = new IOUValue('1.002000000')
@@ -461,7 +461,7 @@ describe('OrderBook', function() {
 
   it('Apply transfer rate - native currency', function() {
     const book = createOrderBook({
-      currency_gets: 'XRP',
+      currency_gets: 'BRT',
       issuer_pays: addresses.ISSUER,
       currency_pays: 'BTC'
     })
@@ -476,7 +476,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'BTC',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     assert.throws(function() {
@@ -488,7 +488,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'BTC',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     assert.throws(function() {
@@ -500,7 +500,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'BTC',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     book._api.connection.request = function(request) {
@@ -525,7 +525,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'BTC',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     book._api.connection.request = function(request) {
@@ -550,7 +550,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'BTC',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     book._issuerTransferRate = new IOUValue('1.002000000')
@@ -566,7 +566,7 @@ describe('OrderBook', function() {
 
   it('Request transfer rate - native currency', function() {
     const book = createOrderBook({
-      currency_gets: 'XRP',
+      currency_gets: 'BRT',
       issuer_pays: addresses.ISSUER,
       currency_pays: 'BTC'
     })
@@ -584,7 +584,7 @@ describe('OrderBook', function() {
   it('Set offer funded amount - iou/brt - fully funded', function() {
     const book = createOrderBook({
       currency_gets: 'BTC',
-      currency_pays: 'XRP',
+      currency_pays: 'BRT',
       issuer_gets: addresses.ISSUER
     })
 
@@ -619,7 +619,7 @@ describe('OrderBook', function() {
   it('Set offer funded amount - iou/brt - unfunded', function() {
     const book = createOrderBook({
       currency_gets: 'BTC',
-      currency_pays: 'XRP',
+      currency_pays: 'BRT',
       issuer_gets: addresses.ISSUER
     })
 
@@ -655,7 +655,7 @@ describe('OrderBook', function() {
 
   it('Set offer funded amount - brt/iou - funded', function() {
     const book = createOrderBook({
-      currency_gets: 'XRP',
+      currency_gets: 'BRT',
       issuer_pays: addresses.ISSUER,
       currency_pays: 'BTC'
     })
@@ -690,7 +690,7 @@ describe('OrderBook', function() {
 
   it('Set offer funded amount - brt/iou - unfunded', function() {
     const book = createOrderBook({
-      currency_gets: 'XRP',
+      currency_gets: 'BRT',
       issuer_pays: addresses.ISSUER,
       currency_pays: 'BTC'
     })
@@ -727,7 +727,7 @@ describe('OrderBook', function() {
 
   it('Set offer funded amount - zero funds', function() {
     const book = createOrderBook({
-      currency_gets: 'XRP',
+      currency_gets: 'BRT',
       issuer_pays: addresses.ISSUER,
       currency_pays: 'BTC'
     })
@@ -763,7 +763,7 @@ describe('OrderBook', function() {
       const book = createOrderBook({
         currency_gets: 'USD',
         issuer_gets: addresses.ISSUER,
-        currency_pays: 'XRP'
+        currency_pays: 'BRT'
       })
 
       const meta = {
@@ -810,7 +810,7 @@ describe('OrderBook', function() {
 
     it('Check is balance change node - not balance change', function() {
       const book = createOrderBook({
-        currency_gets: 'XRP',
+        currency_gets: 'BRT',
         issuer_pays: addresses.ISSUER,
         currency_pays: 'BTC'
       })
@@ -854,7 +854,7 @@ describe('OrderBook', function() {
       const book = createOrderBook({
         currency_gets: 'BTC',
         issuer_gets: addresses.ISSUER,
-        currency_pays: 'XRP'
+        currency_pays: 'BRT'
       })
 
       const meta = {
@@ -903,7 +903,7 @@ describe('OrderBook', function() {
       const book = createOrderBook({
         currency_gets: 'USD',
         issuer_gets: addresses.ISSUER,
-        currency_pays: 'XRP'
+        currency_pays: 'BRT'
       })
 
       const meta = {
@@ -950,7 +950,7 @@ describe('OrderBook', function() {
 
     it('Check is balance change node - native currency', function() {
       const book = createOrderBook({
-        currency_gets: 'XRP',
+        currency_gets: 'BRT',
         issuer_pays: addresses.ISSUER,
         currency_pays: 'BTC'
       })
@@ -984,7 +984,7 @@ describe('OrderBook', function() {
 
     it('Check is balance change node - native currency - not balance change', function() {
       const book = createOrderBook({
-        currency_gets: 'XRP',
+        currency_gets: 'BRT',
         issuer_pays: addresses.ISSUER,
         currency_pays: 'BTC'
       })
@@ -1015,7 +1015,7 @@ describe('OrderBook', function() {
       const book = createOrderBook({
         currency_gets: 'USD',
         issuer_gets: addresses.ISSUER,
-        currency_pays: 'XRP'
+        currency_pays: 'BRT'
       })
 
       const meta = {
@@ -1110,7 +1110,7 @@ describe('OrderBook', function() {
       const book = createOrderBook({
         currency_gets: 'USD',
         issuer_gets: addresses.ISSUER,
-        currency_pays: 'XRP'
+        currency_pays: 'BRT'
       })
 
       const meta = {
@@ -1153,7 +1153,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'USD',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     book._issuerTransferRate = new IOUValue('1.000000000')
@@ -1203,7 +1203,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'USD',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     book._issuerTransferRate = new IOUValue('1.000000000')
@@ -1241,7 +1241,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'USD',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     book._issuerTransferRate = new IOUValue('1.002000000')
@@ -1265,7 +1265,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'USD',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     book._issuerTransferRate = new IOUValue('1.002000000')
@@ -1289,7 +1289,7 @@ describe('OrderBook', function() {
     const message = fixtures.transactionWithAccountRoot()
 
     const book = createOrderBook({
-      currency_gets: 'XRP',
+      currency_gets: 'BRT',
       issuer_pays: addresses.ISSUER,
       currency_pays: 'USD'
     })
@@ -1331,7 +1331,7 @@ describe('OrderBook', function() {
     })
 
     const book = createOrderBook({
-      currency_gets: 'XRP',
+      currency_gets: 'BRT',
       issuer_pays: addresses.ISSUER,
       currency_pays: 'USD'
     })
@@ -1357,7 +1357,7 @@ describe('OrderBook', function() {
 
   it('Update funded amounts - no balance change', function(done) {
     const book = createOrderBook({
-      currency_gets: 'XRP',
+      currency_gets: 'BRT',
       issuer_pays: addresses.ISSUER,
       currency_pays: 'USD'
     })
@@ -1390,7 +1390,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'USD',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     const message = fixtures.transactionWithRippleState()
@@ -1417,7 +1417,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'USD',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     book._issuerTransferRate = new IOUValue('1.002000000')
@@ -1448,7 +1448,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'USD',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     book._issuerTransferRate = new IOUValue('1.002000000')
@@ -1486,7 +1486,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'USD',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     book._issuerTransferRate = new IOUValue('1.002000000')
@@ -1518,7 +1518,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'USD',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     book._issuerTransferRate = new IOUValue('1.002000000')
@@ -1537,7 +1537,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'USD',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     book._issuerTransferRate = new IOUValue('1.002000000')
@@ -1557,7 +1557,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'USD',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     book._issuerTransferRate = new IOUValue('1.002000000')
@@ -1593,7 +1593,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'USD',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     book._api.connection.request = function() {
@@ -1640,7 +1640,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'USD',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     book._api.connection.request = function() {
@@ -1666,7 +1666,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'USD',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     book._subscribed = true
@@ -1693,7 +1693,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'USD',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     book.on('transaction', function() {
@@ -1737,11 +1737,11 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'USD',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     book.on('trade', function(tradePays, tradeGets) {
-      const expectedTradePays = new XRPValue(fixtures.TAKER_PAYS)
+      const expectedTradePays = new BRTValue(fixtures.TAKER_PAYS)
       const expectedTradeGets = new IOUValue(fixtures.TAKER_GETS)
 
       assert(tradePays.equals(expectedTradePays))
@@ -1765,7 +1765,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'USD',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     book._subscribed = true
@@ -1789,7 +1789,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'USD',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     book._subscribed = true
@@ -1813,7 +1813,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'USD',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     book._subscribed = true
@@ -1847,7 +1847,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'USD',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     book._api.connection.request = function() {
@@ -1895,11 +1895,11 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'USD',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     book.on('trade', function(tradePays, tradeGets) {
-      const expectedTradePays = new XRPValue('800000000')
+      const expectedTradePays = new BRTValue('800000000')
       const expectedTradeGets = new IOUValue('1')
 
       assert(tradePays.equals(expectedTradePays))
@@ -1923,11 +1923,11 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'USD',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     book.on('trade', function(tradePays, tradeGets) {
-      const expectedTradePays = new XRPValue('870000000')
+      const expectedTradePays = new BRTValue('870000000')
       const expectedTradeGets = new IOUValue('2')
 
       assert(tradePays.equals(expectedTradePays))
@@ -1956,7 +1956,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'USD',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     book.on('transaction', function() {
@@ -1998,7 +1998,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'USD',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     book._subscribed = true
@@ -2027,7 +2027,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'USD',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     book._subscribed = true
@@ -2057,7 +2057,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'USD',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     book._subscribed = true
@@ -2078,9 +2078,9 @@ describe('OrderBook', function() {
     assert.strictEqual(book._offers[0].quality, '75977580.74206542')
   })
 
-  it('Insert offer - XRP gets quality calculation', function() {
+  it('Insert offer - BRT gets quality calculation', function() {
     const book = createOrderBook({
-      currency_gets: 'XRP',
+      currency_gets: 'BRT',
       currency_pays: 'USD',
       issuer_pays: addresses.ISSUER
     })
@@ -2105,7 +2105,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'USD',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     book._subscribed = true
@@ -2141,7 +2141,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'USD',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     book._subscribed = true
@@ -2179,7 +2179,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'USD',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     book._subscribed = true
@@ -2314,7 +2314,7 @@ describe('OrderBook', function() {
     ]
 
     const book = createOrderBook({
-      currency_gets: 'XRP',
+      currency_gets: 'BRT',
       currency_pays: 'USD',
       issuer_pays: addresses.ISSUER
     })
@@ -2344,7 +2344,7 @@ describe('OrderBook', function() {
     const book = createOrderBook({
       currency_gets: 'USD',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP'
+      currency_pays: 'BRT'
     })
 
     let numModelEvents = 0
@@ -2391,7 +2391,7 @@ describe('OrderBook', function() {
     const options = {
       currency_gets: 'USD',
       issuer_gets: addresses.ISSUER,
-      currency_pays: 'XRP',
+      currency_pays: 'BRT',
       ledger_index: 123456
     }
     const book = createOrderBook(options)
@@ -2454,7 +2454,7 @@ describe('OrderBook', function() {
     }
     const book = createOrderBook(options)
     const rippled_offers = {
-      XRPBTC: [{
+      BRTBTC: [{
         'Account': 'rBWVP27pWkp7RRy3ry5T7an7hJUQdJfCDR',
         'BookDirectory': '37AAC93D336021AE94310D0430FFA090F7137C97D473488C491A0F8E01CF5BA7',
         'BookNode': '0000000000000000',
@@ -2474,7 +2474,7 @@ describe('OrderBook', function() {
         'owner_funds': '104760699390',
         'quality': '7335451984616359e-27'
       }],
-      USDXRP: [{
+      USDBRT: [{
         'Account': 'rhZ3EktwDsz7sP52PeqL11yJw5EJqvcGSR',
         'BookDirectory': '4627DFFCFF8B5A265EDBD8AE8C14A52325DBFEDAF4F5C32E5D05B41E5D68032B',
         'BookNode': '0000000000000000',

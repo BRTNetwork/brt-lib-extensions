@@ -3,7 +3,7 @@ var _ = require('lodash')
 var BigNumber = require('bignumber.js')
 
 // drops is a bignumber.js BigNumber
-function dropsToXRP(drops) {
+function dropsToBRT(drops) {
   return drops.dividedBy(1000000)
 }
 
@@ -33,8 +33,8 @@ function parseCurrencyAmount(currencyAmount) {
   }
   if (typeof currencyAmount === 'string') {
     return {
-      currency: 'XRP',
-      value: dropsToXRP(new BigNumber(currencyAmount)).toString()
+      currency: 'BRT',
+      value: dropsToBRT(new BigNumber(currencyAmount)).toString()
     }
   }
 
@@ -73,7 +73,7 @@ function getAffectedAccounts(metadata) {
 
 
 module.exports = {
-  dropsToXRP: dropsToXRP,
+  dropsToBRT: dropsToBRT,
   normalizeNodes: normalizeNodes,
   parseCurrencyAmount: parseCurrencyAmount,
   getAffectedAccounts: getAffectedAccounts

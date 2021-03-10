@@ -30,10 +30,10 @@ describe('OrderBook Autobridging', function() {
       issuer_pays: addresses.ISSUER
     })
 
-    assert.deepEqual(book._legOneBook._currencyGets, 'XRP')
+    assert.deepEqual(book._legOneBook._currencyGets, 'BRT')
     assert.deepEqual(book._legOneBook._currencyPays, 'USD')
     assert.deepEqual(book._legTwoBook._currencyGets, 'EUR')
-    assert.deepEqual(book._legTwoBook._currencyPays, 'XRP')
+    assert.deepEqual(book._legTwoBook._currencyPays, 'BRT')
   })
 
   it('Compute autobridged offers', function() {

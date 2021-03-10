@@ -14,7 +14,7 @@ function isHexCurrency(currency) {
 function getISOCode(hexCurrency) {
   const bytes = new Buffer(hexCurrency, 'hex')
   if (_.every(bytes, octet => octet === 0)) {
-    return 'XRP'
+    return 'BRT'
   }
   if (!_.every(bytes, (octet, i) => octet === 0 || (i >= 12 && i <= 14))) {
     return null
@@ -39,7 +39,7 @@ function toHexCurrency(currency: string): string {
   if (isISOCode(currency)) {
     const bytes = new Buffer(20)
     bytes.fill(0)
-    if (currency !== 'XRP') {
+    if (currency !== 'BRT') {
       bytes[12] = currency.charCodeAt(0)
       bytes[13] = currency.charCodeAt(1)
       bytes[14] = currency.charCodeAt(2)
