@@ -581,7 +581,7 @@ describe('OrderBook', function() {
     })
   })
 
-  it('Set offer funded amount - iou/xrp - fully funded', function() {
+  it('Set offer funded amount - iou/brt - fully funded', function() {
     const book = createOrderBook({
       currency_gets: 'BTC',
       currency_pays: 'XRP',
@@ -616,7 +616,7 @@ describe('OrderBook', function() {
     assert.deepEqual(offer, expected)
   })
 
-  it('Set offer funded amount - iou/xrp - unfunded', function() {
+  it('Set offer funded amount - iou/brt - unfunded', function() {
     const book = createOrderBook({
       currency_gets: 'BTC',
       currency_pays: 'XRP',
@@ -653,7 +653,7 @@ describe('OrderBook', function() {
     assert.deepEqual(offer, expected)
   })
 
-  it('Set offer funded amount - xrp/iou - funded', function() {
+  it('Set offer funded amount - brt/iou - funded', function() {
     const book = createOrderBook({
       currency_gets: 'XRP',
       issuer_pays: addresses.ISSUER,
@@ -688,7 +688,7 @@ describe('OrderBook', function() {
     assert.deepEqual(offer, expected)
   })
 
-  it('Set offer funded amount - xrp/iou - unfunded', function() {
+  it('Set offer funded amount - brt/iou - unfunded', function() {
     const book = createOrderBook({
       currency_gets: 'XRP',
       issuer_pays: addresses.ISSUER,
@@ -1413,7 +1413,7 @@ describe('OrderBook', function() {
     book._updateFundedAmounts(message)
   })
 
-  it('Set offers - issuer transfer rate set - iou/xrp', function() {
+  it('Set offers - issuer transfer rate set - iou/brt', function() {
     const book = createOrderBook({
       currency_gets: 'USD',
       issuer_gets: addresses.ISSUER,
@@ -1444,7 +1444,7 @@ describe('OrderBook', function() {
     assert.strictEqual(book._getOwnerFunds(addresses.FOURTH_ACCOUNT).toString(), '7229.594289344439')
   })
 
-  it('Set offers - issuer transfer rate set - iou/xrp - funded amounts', function() {
+  it('Set offers - issuer transfer rate set - iou/brt - funded amounts', function() {
     const book = createOrderBook({
       currency_gets: 'USD',
       issuer_gets: addresses.ISSUER,

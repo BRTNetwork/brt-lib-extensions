@@ -311,7 +311,7 @@ function loadFixture(filename) {
 
 describe('parseBalanceChanges', function() {
   it('XRP create account', function() {
-    var paymentResponse = loadFixture('payment-xrp-create-account.json')
+    var paymentResponse = loadFixture('payment-brt-create-account.json')
     var result = parseBalanceChanges(paymentResponse.metadata)
     assert.deepEqual(result, createAccountBalanceChanges)
   })

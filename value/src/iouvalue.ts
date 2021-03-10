@@ -1,5 +1,5 @@
 import {Value} from './value'
-import {XRPValue} from './xrpvalue'
+import {XRPValue} from './brtvalue'
 import BigNumber from 'bignumber.js'
 
 const IOUNumber = BigNumber.clone({
@@ -7,7 +7,7 @@ const IOUNumber = BigNumber.clone({
   DECIMAL_PLACES: 40
 })
 
-const xrpUnits = new IOUNumber(1e6);
+const brtUnits = new IOUNumber(1e6);
 
 class IOUValue extends Value {
 
@@ -21,7 +21,7 @@ class IOUValue extends Value {
     if (multiplicand instanceof XRPValue) {
       return super.multiply(
         new IOUValue(
-          multiplicand._value.times(xrpUnits)));
+          multiplicand._value.times(brtUnits)));
     }
     return super.multiply(multiplicand);
   }
@@ -29,7 +29,7 @@ class IOUValue extends Value {
   divide(divisor: Value) {
     if (divisor instanceof XRPValue) {
       return super.divide(
-        new IOUValue(divisor._value.times(xrpUnits)));
+        new IOUValue(divisor._value.times(brtUnits)));
     }
     return super.divide(divisor);
   }

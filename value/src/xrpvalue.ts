@@ -6,7 +6,7 @@ const IOUNumber = BigNumber.clone({
   DECIMAL_PLACES: 40
 });
 
-const xrpUnits = new IOUNumber(1e6);
+const brtUnits = new IOUNumber(1e6);
 
 class XRPValue extends Value {
 
@@ -23,7 +23,7 @@ class XRPValue extends Value {
   multiply(multiplicand: Value) {
     if (multiplicand instanceof XRPValue) {
       return super.multiply(
-        new XRPValue(multiplicand._value.times(xrpUnits)));
+        new XRPValue(multiplicand._value.times(brtUnits)));
     }
     return super.multiply(multiplicand);
   }
@@ -31,7 +31,7 @@ class XRPValue extends Value {
   divide(divisor: Value) {
     if (divisor instanceof XRPValue) {
       return super.divide(
-        new XRPValue(divisor._value.times(xrpUnits)));
+        new XRPValue(divisor._value.times(brtUnits)));
     }
     return super.divide(divisor);
   }
