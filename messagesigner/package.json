@@ -1,5 +1,5 @@
 {
-  "name": "brt-lib-messagesigner",
+  "name": "@brtnetwork/brt-lib-messagesigner",
   "version": "0.1.0",
   "description": "Signs messages",
   "scripts": {
@@ -11,7 +11,7 @@
   },
   "main": "src/message.js",
   "keywords": [
-    "ripple",
+    "brt",
     "brt-lib",
     "brt-lib-messagesigner"
   ],

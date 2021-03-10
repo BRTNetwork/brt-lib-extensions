@@ -1,5 +1,5 @@
 {
-  "name": "brt-lib-value",
+  "name": "@brtnetwork/brt-lib-value",
   "version": "0.3.1",
   "license": "ISC",
   "description": "Classes for dealing with BRT Ledger amount values",
@@ -21,7 +21,7 @@
   },
   "main": "dist/npm/",
   "keywords": [
-    "ripple",
+    "brt",
     "brt-lib",
     "brt-lib-value"
   ],

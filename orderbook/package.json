@@ -1,5 +1,5 @@
 {
-  "name": "brt-lib-orderbook",
+  "name": "@brtnetwork/brt-lib-orderbook",
   "version": "0.2.1",
   "license": "ISC",
   "description": "DEPRECATED: Use brt-lib instead.",
@@ -24,7 +24,7 @@
   },
   "main": "dist/npm/",
   "keywords": [
-    "ripple",
+    "brt",
     "brt-lib",
     "brt-lib-orderbook"
   ],
@@ -34,9 +34,9 @@
   "dependencies": {
     "babel-runtime": "^5.8.29",
     "lodash": "^4.17.19",
-    "brt-address-codec": "^4.0.0",
-    "brt-binary-codec": "^0.2.4",
-    "brt-lib-value": "^0.3.1"
+    "@brtnetwork/brt-address-codec": "^4.0.0",
+    "@brtnetwork/brt-binary-codec": "^0.2.4",
+    "@brtnetwork/brt-lib-value": "^0.3.1"
   },
   "devDependencies": {
     "assert-diff": "^1.0.1",

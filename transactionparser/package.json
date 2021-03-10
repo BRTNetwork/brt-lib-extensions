@@ -1,5 +1,5 @@
 {
-  "name": "brt-lib-transactionparser",
+  "name": "@brtnetwork/brt-lib-transactionparser",
   "version": "0.8.2",
   "description": "Parses transaction objects to a higher-level view",
   "license": "ISC",
@@ -14,7 +14,7 @@
   },
   "main": "src/index.js",
   "keywords": [
-    "ripple",
+    "brt",
     "brt-lib",
     "brt-lib-transactionparser"
   ],
